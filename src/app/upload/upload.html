@@ -1,1 +1,48 @@
-<p>upload works!</p>
+<!-- Main container for the upload form -->
+<main class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-6 col-lg-4">
+      <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="card-title text-center mb-4">Upload Gallery</h1>
+          
+          <div class="alert alert-danger" *ngIf="error">
+            {{ error }}
+          </div>
+
+          <div class="form-floating mb-3">
+            <input 
+              type="text" 
+              class="form-control" 
+              id="title" 
+              formControlName="title" 
+              placeholder="Title"
+              [ngClass]="{'is-invalid': uploadForm.get('title')?.errors && uploadForm.get('title')?.touched}">
+            <label for="title">Title</label>
+            <div class="invalid-feedback" *ngIf="uploadForm.get('title')?.errors && uploadForm.get('title')?.touched">
+              Title is required
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="thumbnail" class="form-label">Thumbnail Image</label>
+            <input 
+              type="file" 
+              class="form-control" 
+              id="thumbnail" 
+              (change)="onFileSelected($event)"
+              accept="image/jpg"
+              [ngClass]="{'is-invalid': uploadForm.get('thumbnail')?.errors && uploadForm.get('thumbnail')?.touched}">
+            <div class="invalid-feedback" *ngIf="uploadForm.get('thumbnail')?.errors && uploadForm.get('thumbnail')?.touched">
+              Image is required
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" [disabled]="uploadForm.invalid || isUploading">
+            {{ isUploading ? 'Uploading...' : 'Upload' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
