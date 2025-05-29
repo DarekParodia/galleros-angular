@@ -1,1 +1,47 @@
-<p>login works!</p>
+<main class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-6 col-lg-4">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="card-title text-center mb-4">Login</h1>
+          
+          <div class="form-floating mb-3">
+            <input 
+              type="text" 
+              class="form-control" 
+              id="username" 
+              formControlName="username" 
+              placeholder="Username"
+              [ngClass]="{'is-invalid': loginForm.get('username')?.errors && loginForm.get('username')?.touched}">
+            <label for="username">Username</label>
+            <div class="invalid-feedback" *ngIf="loginForm.get('username')?.errors && loginForm.get('username')?.touched">
+              {{ getUsernameError() }}
+            </div>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input 
+              type="password" 
+              class="form-control" 
+              id="password" 
+              formControlName="password" 
+              placeholder="Password"
+              [ngClass]="{'is-invalid': loginForm.get('password')?.errors && loginForm.get('password')?.touched}">
+            <label for="password">Password</label>
+            <div class="invalid-feedback" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+              {{ getPasswordError() }}
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 mb-3" [disabled]="loginForm.invalid">
+            Login
+          </button>
+
+          <p class="text-center mb-0">
+            Don't have an account? <a routerLink="/register">Register here</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
