@@ -1,0 +1,10 @@
+<main class="gallery-container">
+  @for (gallery of galleries; track gallery.id) {
+    <app-gallery-cell 
+      [title]="gallery.name"
+      [author]="gallery.author.name"
+      [imageUrl]="gallery.getThumbnailUrl()"
+      [id]="gallery.id"
+    ></app-gallery-cell>
+  }
+</main>

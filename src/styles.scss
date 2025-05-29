@@ -1,1 +1,32 @@
+$primary-custom: #6d28d9;
+$secondary-custom: #8b5cf6;
+$success-custom: #10b981;
+$info-custom: #3b82f6;
+$warning-custom: #f59e0b;
+$danger-custom: #ef4444;
+$light-custom: #f3f4f6;
+$dark-custom: #1f2937;
+
+
 /* You can add global styles to this file, and also import other style files */
+@use "../node_modules/bootstrap/scss/bootstrap" as bootstrap with (
+    $primary: $primary-custom,
+    $secondary: $secondary-custom,
+    $success: $success-custom,
+    $info: $info-custom,
+    $warning: $warning-custom,
+    $danger: $danger-custom,
+    $light: $light-custom,
+    $dark: $dark-custom,
+    // It's crucial to also override $theme-colors if you want utility classes like .bg-primary to use your custom colors.
+    $theme-colors: (
+      "primary": $primary-custom,
+      "secondary": $secondary-custom,
+      "success": $success-custom,
+      "info": $info-custom,
+      "warning": $warning-custom,
+      "danger": $danger-custom,
+      "light": $light-custom,
+      "dark": $dark-custom
+    )
+);

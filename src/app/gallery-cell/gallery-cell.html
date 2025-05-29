@@ -1,0 +1,9 @@
+<div class="gallery-cell">
+  <a [routerLink]="['/gallery', id]" class="gallery-link">
+    <img [src]="imageUrl" [alt]="title" class="gallery-thumbnail">
+    <div class="gallery-info">
+      <h3 class="gallery-title">{{title}}</h3>
+      <p class="gallery-author">by {{author}}</p>
+    </div>
+  </a>
+</div>
