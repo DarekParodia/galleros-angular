@@ -5,6 +5,10 @@
         <div class="card-body p-4">
           <h1 class="card-title text-center mb-4">Login</h1>
           
+          <div class="alert alert-danger" *ngIf="loginForm.errors?.['serverError']">
+            {{ loginForm.errors?.['serverError'] }}
+          </div>
+          
           <div class="form-floating mb-3">
             <input 
               type="text" 

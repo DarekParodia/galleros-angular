@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,29 +15,31 @@ export class Header implements OnInit {
   isLoggedIn = false;
   username: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private auth: AuthService
+  ) {}
 
   ngOnInit() {
-    this.checkAuthStatus();
-  }
-
-  private checkAuthStatus() {
-    this.isLoggedIn = localStorage.getItem('logged_in') === 'true';
-    this.username = localStorage.getItem('username');
+    this.auth.isLoggedIn$.subscribe(
+      isLoggedIn => this.isLoggedIn = isLoggedIn
+    );
+    this.auth.username$.subscribe(
+      username => this.username = username
+    );
   }
 
   logout() {
-    // Clear all localStorage items
-    localStorage.removeItem('logged_in');
-    localStorage.removeItem('username');
-    localStorage.removeItem('user_id');
-    
-    // Reset component state
-    this.isLoggedIn = false;
-    this.username = null;
-    
-    // Navigate to home
-    this.router.navigate(['/']);
+    this.auth.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error('Logout failed:', error);
+        // Still clear local session even if server request fails
+        this.auth.logout().subscribe();
+      }
+    });
   }
 
   toggleNavbar() {

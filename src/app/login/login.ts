@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,16 +18,17 @@ export class Login implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private auth: AuthService,
     private router: Router
   ) {}
 
   ngOnInit() {
     // Check if already logged in
-    if (localStorage.getItem('logged_in') === 'true') {
-      this.router.navigate(['/']);
-      return;
-    }
+    this.auth.isLoggedIn$.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.router.navigate(['/']);
+      }
+    });
 
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.pattern(this.usernameRegex)]],
@@ -65,18 +66,12 @@ export class Login implements OnInit {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
       
-      this.http.post<any>('http://localhost:80/galleros/public/api/auth.php', {
-        name: username,
-        password: password
-      }).subscribe({
+      this.auth.login(username, password).subscribe({
         next: (response) => {
-          if (response.error) {
-            this.loginForm.setErrors({ serverError: response.error });
+          if (response.body?.error) {
+            this.loginForm.setErrors({ serverError: response.body.error });
             return;
           }
-          localStorage.setItem('logged_in', 'true');
-          localStorage.setItem('username', username);
-          localStorage.setItem('user_id', response.id);
           this.router.navigate(['/']);
         },
         error: (error) => {
