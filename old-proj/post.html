@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="shortcut icon" href="./img/cccoil.svg" type="image/x-icon">
+    <script src="js/types.js"></script>
+    <script src="js/post.js"></script>
+    <script src="js/header.js"></script>
+    <title>Post - Galleros</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <a href="./"><img src="./img/logo.png" alt="Galleros Logo" class="logo"></a>
+                <a href="./" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About</a>
+                <a href="https://github.com/DarekParodia/galleros" class="nav-link" target="_blank">Github</a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-link">Login</a>
+                <a href="#" class="nav-link">Register</a>
+            </div>
+        </nav>
+    </header>
+    <main class="post-page">
+        <div class="post-content">
+            <h1 class="post-title">Loading...</h1>
+            <p class="post-info">Posted in <a href="#" class="gallery-link">...</a></p>
+            <div class="post-image-container">
+                <img src="" alt="" class="post-image">
+            </div>
+            <div class="post-actions">
+                <button class="action-button like-button">👍 <span class="likes-count">0</span></button>
+                <button class="action-button dislike-button">👎 <span class="dislikes-count">0</span></button>
+            </div>
+            <div class="comments-section">
+                <h2>Comments</h2>
+                <form id="comment-form" class="comment-form">
+                    <textarea name="content" placeholder="Write a comment..." required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+                <div class="comments-list">
+                    <!-- Comments will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

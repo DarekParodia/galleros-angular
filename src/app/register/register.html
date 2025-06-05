@@ -1,1 +1,28 @@
-<p>register works!</p>
+<main class="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <h1>Create Account</h1>
+    <div class="form-group">
+      <input type="text" formControlName="username" required>
+      <label for="username">Username</label>
+      <div class="form-warning" *ngIf="registerForm.get('username')?.errors?.['pattern']">
+        Username must be 3-20 characters long and can only contain letters, numbers, and underscores.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" formControlName="password" required>
+      <label for="password">Password</label>
+      <div class="form-warning" *ngIf="registerForm.get('password')?.errors?.['pattern']">
+        Password must be between 6 and 20 characters long.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" formControlName="confirmPassword" required>
+      <label for="confirmPassword">Confirm Password</label>
+      <div class="form-warning" *ngIf="registerForm.get('confirmPassword')?.errors?.['mismatch']">
+        Passwords do not match.
+      </div>
+    </div>
+    <button type="submit" class="register-button" [disabled]="registerForm.invalid">Register</button>
+    <p class="login-link">Already have an account? <a routerLink="/login">Login here</a></p>
+  </form>
+</main>

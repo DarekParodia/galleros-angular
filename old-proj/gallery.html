@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="shortcut icon" href="./img/cccoil.svg" type="image/x-icon">
+    <script src="js/types.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/header.js"></script>
+    <title>Gallery - Galleros</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <a href="./">
+                    <img src="./img/logo.png" alt="Galleros Logo" class="logo">
+                </a>
+                <a href="./" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About</a>
+                <a href="https://github.com/DarekParodia/galleros" class="nav-link" target="_blank">Github</a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-link">Login</a>
+                <a href="#" class="nav-link">Register</a>
+            </div>
+        </nav>
+    </header>
+    <main class="gallery-page">
+        <div class="gallery-header">
+            <div class="gallery-info">
+                <h1 class="gallery-title">Loading...</h1>
+                <p class="gallery-author">by <span class="author-name">...</span></p>
+            </div>
+            <img class="gallery-thumbnail" alt="Gallery thumbnail">
+        </div>
+        <div class="upload-section" style="display: none;">
+            <form id="uploadPostForm" class="post-upload-form">
+                <h3>Add New Post</h3>
+                <input type="text" name="title" placeholder="Post Title" required>
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Create Post</button>
+                <input type="hidden" name="type" value="post">
+            </form>
+        </div>
+        <div class="gallery-content">
+            <div class="posts-container">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>

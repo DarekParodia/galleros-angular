@@ -38,6 +38,13 @@ export class AuthService {
     );
   }
 
+  register(username: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.API_URL}/user.php`, {
+      name: username,
+      password: password
+    }, { observe: 'response', withCredentials: true });
+  }
+
   private setSession(userId: string, username: string) {
     localStorage.setItem('logged_in', 'true');
     localStorage.setItem('username', username);

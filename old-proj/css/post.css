@@ -1,0 +1,173 @@
+.post-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.post-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-title {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+}
+
+.post-info {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.gallery-link {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.gallery-link:hover {
+    text-decoration: underline;
+}
+
+.post-image-container {
+    margin: 2rem 0;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 800px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background: #f8f9fa;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s ease;
+}
+
+.action-button:hover {
+    background: #e9ecef;
+}
+
+.comments-section {
+    margin-top: 3rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.comments-section h2 {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.comment-form {
+    margin-bottom: 2rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    resize: vertical;
+}
+
+.comment-form textarea:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.comment-form button {
+    padding: 0.8rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.comment-form button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.comment-form button:hover {
+    background: #2980b9;
+}
+
+.comment-form button:disabled:hover {
+    background-color: #95a5a6;
+}
+
+.comment {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-content-wrapper {
+    flex: 1;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.comment-action {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background: #e9ecef;
+    color: #2c3e50;
+    transition: background 0.2s ease;
+}
+
+.comment-action:hover {
+    background: #dee2e6;
+}
+
+.comment-action.delete {
+    background: #ff7675;
+    color: white;
+}
+
+.comment-action.delete:hover {
+    background: #d63031;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.comment-content {
+    color: #34495e;
+    line-height: 1.5;
+}

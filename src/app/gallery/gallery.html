@@ -1,1 +1,41 @@
-<p>gallery works!</p>
+<main class="gallery-page container">
+  <div class="gallery-header row">
+    <div class="gallery-info col-md-8">
+      <h1 class="gallery-title">Loading...</h1>
+      <p class="gallery-author">by <span class="author-name">...</span></p>
+    </div>
+    <div class="col-md-4">
+      <img class="gallery-thumbnail img-fluid" alt="Gallery thumbnail">
+    </div>
+  </div>
+  <div class="upload-section" *ngIf="showUploadSection">
+    <form id="uploadPostForm" class="post-upload-form" (submit)="createPost($event)">
+      <h3>Add New Post</h3>
+      <input type="text" name="title" placeholder="Post Title" required class="form-control mb-2">
+      <input type="file" name="image" accept="image/*" required class="form-control mb-2">
+      <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+  </div>
+  <div class="gallery-content">
+    <div class="posts-container row">
+      <div class="col-md-4" *ngFor="let post of posts">
+        <a [href]="'./post.html?id=' + post.id" class="post-link">
+          <div class="post-card card">
+            <img [src]="'./img/posts/' + post.id + '/thumbnail.jpg'" class="post-thumbnail card-img-top" [alt]="post.title">
+            <div class="card-body">
+              <h5 class="post-title card-title">{{ post.title }}</h5>
+              <div class="post-stats">
+                <span class="likes">
+                  👍 {{ post.likes }}
+                </span>
+                <span class="dislikes">
+                  👎 {{ post.dislikes }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>

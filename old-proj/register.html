@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="shortcut icon" href="./img/cccoil.svg" type="image/x-icon">
+    <script src="js/register.js"></script>
+    <script src="js/header.js"></script>
+    <title>Register - Galleros</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-left">
+                <a href="./">
+                    <img src="./img/logo.png" alt="Galleros Logo" class="logo">
+                </a>
+                <a href="./" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About</a>
+                <a href="https://github.com/DarekParodia/galleros" class="nav-link" target="_blank">Github</a>
+            </div>
+            <div class="nav-right">
+                <a href="./login.html" class="nav-link">Login</a>
+                <a href="./register.html" class="nav-link active">Register</a>
+            </div>
+        </nav>
+    </header>
+    <main class="register-container">
+        <form id="register-form" class="register-form">
+            <h1>Create Account</h1>
+            <div class="form-group">
+                <input type="text" id="username" name="username" required>
+                <label for="username">Username</label>
+                <div class="form-warning" id="username-warning"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <div class="form-warning" id="password-warning"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <label for="confirm-password">Confirm Password</label>
+                <div class="form-warning" id="confirm-password-warning"></div>
+            </div>
+            <button type="submit" class="register-button">Register</button>
+            <p class="login-link">Already have an account? <a href="./login.html">Login here</a></p>
+        </form>
+    </main>
+</body>
+</html>

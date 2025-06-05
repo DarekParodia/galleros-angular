@@ -41,6 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-old-proj
-old-proj/
-old-proj/*
+# old-proj
+# old-proj/
+# old-proj/*
